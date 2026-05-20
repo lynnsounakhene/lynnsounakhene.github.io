@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lynn Sounakhene — Operations Leader & Producer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0f0e;
+    --paper: #f5f2ec;
+    --accent: #c8a96e;
+    --muted: #7a7570;
+    --rule: #d8d3cc;
+    --serif: 'Space Grotesk', sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ─────────────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    border: 1px solid var(--rule);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -15%;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    border: 1px solid var(--rule);
+    pointer-events: none;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-size: clamp(3.2rem, 7vw, 6.5rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.15em;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  .hero-descriptor {
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 560px;
+    margin-top: 2rem;
+    line-height: 1.6;
+  }
+
+  .hero-descriptor strong {
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 3rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 0.25rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .hero-cta:hover { color: var(--accent); border-color: var(--accent); }
+  .hero-cta .arrow { transition: transform 0.2s; }
+  .hero-cta:hover .arrow { transform: translateX(4px); }
+
+  .hero-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .hero-stat-row { display: flex; gap: 3rem; }
+  .hero-stat { text-align: right; }
+  .hero-stat-num { display: block; font-size: 1.4rem; font-family: var(--serif); font-weight: 300; color: var(--ink); letter-spacing: -0.02em; }
+
+  /* ── MARQUEE ──────────────────────────────────────────────── */
+  .marquee-wrap {
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.9rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    background: var(--ink);
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    animation: marquee 28s linear infinite;
+  }
+
+  .marquee-item {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--paper);
+    padding: 0 3rem;
+  }
+
+  .marquee-dot { color: var(--accent); }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── SECTIONS ─────────────────────────────────────────────── */
+  section { padding: 7rem 4rem; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 80px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    max-width: 680px;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--muted); }
+
+  /* ── ABOUT ────────────────────────────────────────────────── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: #3a3835;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-text p strong { font-weight: 400; color: var(--ink); }
+
+  .about-sidebar { display: flex; flex-direction: column; gap: 2.5rem; padding-top: 0.5rem; }
+
+  .about-kpi {
+    border-left: 1px solid var(--accent);
+    padding-left: 1.5rem;
+  }
+
+  .about-kpi-num {
+    font-size: 2.8rem;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+
+  .about-kpi-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.4rem;
+  }
+
+  /* ── EXPERIENCE ───────────────────────────────────────────── */
+  .exp-section { background: var(--ink); color: var(--paper); }
+  .exp-section .section-label { color: var(--accent); }
+  .exp-section .section-label::after { background: rgba(255,255,255,0.12); }
+  .exp-section .section-title { color: var(--paper); }
+  .exp-section .section-title em { color: rgba(255,255,255,0.45); }
+
+  .exp-grid { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.2s;
+  }
+  .exp-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+
+  .exp-meta { padding-top: 0.2rem; }
+
+  .exp-dates {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-co {
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 300;
+  }
+
+  .exp-role {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--paper);
+    margin-bottom: 0.25rem;
+  }
+
+  .exp-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(200,169,110,0.15);
+    color: var(--accent);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    margin-bottom: 0.75rem;
+  }
+
+  .exp-desc {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+  }
+
+  .exp-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .exp-highlight {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 0.25rem 0.65rem;
+    border-radius: 2px;
+  }
+
+  /* ── SKILLS ───────────────────────────────────────────────── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 1rem;
+  }
+
+  .skill-block {
+    background: white;
+    padding: 2rem 2rem 2rem;
+    border: 1px solid var(--rule);
+  }
+
+  .skill-block-icon {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .skill-block-title {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-block-list {
+    list-style: none;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    line-height: 2;
+  }
+
+  /* ── CONTACT ──────────────────────────────────────────────── */
+  .contact-section {
+    background: var(--accent);
+    color: var(--ink);
+    text-align: center;
+    padding: 7rem 4rem;
+  }
+
+  .contact-section .section-title {
+    color: var(--ink);
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-section .section-title em { color: rgba(15,15,14,0.5); }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(15,15,14,0.3);
+    padding-bottom: 0.25rem;
+    transition: border-color 0.2s;
+  }
+  .contact-link:hover { border-color: var(--ink); }
+
+  /* ── ANIMATIONS ───────────────────────────────────────────── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    .hero { padding: 2rem; }
+    section { padding: 4rem 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .hero-stat-row { gap: 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .contact-section { padding: 4rem 2rem; }
+    .contact-links { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <nav class="nav">
+    <span>Lynn Sounakhene</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-body">
+    <p class="hero-eyebrow">Operations Leader &amp; Producer — Los Angeles</p>
+    <h1 class="hero-name">Lynn<br><em>Sounakhene</em></h1>
+    <p class="hero-descriptor">
+      I build the systems that make <strong>ambitious ideas</strong> work at scale —
+      from an 18,000-person arena concert to a 30-day eCommerce launch
+      to enterprise software deployments across hospital systems.
+    </p>
+    <a href="#experience" class="hero-cta">
+      View my work <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <div class="hero-foot">
+    <span>Los Angeles, CA · Available for new roles</span>
+    <div class="hero-stat-row">
+      <div class="hero-stat">
+        <span class="hero-stat-num">18K</span>
+        <span>ACLU Staples<br>Center Concert</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">180K+</span>
+        <span>Community<br>members scaled</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">10+</span>
+        <span>Years<br>operating</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Program Management <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Live Event Production <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">DTC Brand Operations <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Healthcare Technology <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Go-Live Execution <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Stakeholder Alignment <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Org Building <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Workflow Design <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Program Management <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Live Event Production <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">DTC Brand Operations <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Healthcare Technology <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Go-Live Execution <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Stakeholder Alignment <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Org Building <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Workflow Design <span class="marquee-dot">·</span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">About</p>
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <p>I've spent my career in the space where a great idea meets the reality of making it happen — and building everything required to close that gap.</p>
+      <p>Whether it's standing up an organization from nothing, producing a <strong>nationally visible event under a tight political deadline</strong>, or leading a technology rollout across a hospital system, I bring the same discipline: define the structure, align the stakeholders, protect the timeline, and deliver.</p>
+      <p>I've operated across healthcare, entertainment, biotech, and tech — not because I couldn't pick a lane, but because <strong>great operations are industry-agnostic</strong>. The systems that make complex programs work are the same whether you're clearing FDA deadlines or go-live dates at Staples Center.</p>
+      <p>I'm at my best embedded in teams that are building something meaningful — bringing order to complexity and making sure nothing falls through the cracks.</p>
+    </div>
+    <div class="about-sidebar fade-in" style="transition-delay: 0.15s">
+      <div class="about-kpi">
+        <div class="about-kpi-num">18,000</div>
+        <div class="about-kpi-label">Attendees — ACLU Welcome Concert, Staples Center</div>
+      </div>
+      <div class="about-kpi">
+        <div class="about-kpi-num">180K+</div>
+        <div class="about-kpi-label">Community members scaled from zero at Shethority</div>
+      </div>
+      <div class="about-kpi">
+        <div class="about-kpi-num">$100K+</div>
+        <div class="about-kpi-label">Revenue raised across fundraising campaigns</div>
+      </div>
+      <div class="about-kpi">
+        <div class="about-kpi-num">85%+</div>
+        <div class="about-kpi-label">User adoption within 2 weeks across all go-lives</div>
+      </div>
+      <div class="about-kpi">
+        <div class="about-kpi-num">30 days</div>
+        <div class="about-kpi-label">eCommerce platform launched, zero infrastructure</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="exp-section">
+  <p class="section-label">Experience</p>
+  <h2 class="section-title">A decade of making <em>complex programs</em> work</h2>
+
+  <div class="exp-grid">
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <p class="exp-dates">2017 – 2019</p>
+        <p class="exp-co">All Worthy People</p>
+      </div>
+      <div>
+        <p class="exp-role">Assistant Producer</p>
+        <span class="exp-tag">Live Events · Brand Activations</span>
+        <p class="exp-desc">Co-produced the ACLU Welcome Concert at Staples Center — an 18,000-person arena event organized in direct response to the federal travel ban, with all proceeds directed to the ACLU. Also produced the inaugural WUTI Film Festival in Idyllwild and supported brand activations for Nike, Adidas, and Disney.</p>
+        <div class="exp-highlights">
+          <span class="exp-highlight">18,000 attendees</span>
+          <span class="exp-highlight">Staples Center</span>
+          <span class="exp-highlight">Nike · Adidas · Disney</span>
+          <span class="exp-highlight">Film Festival</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <p class="exp-dates">2017 – 2020</p>
+        <p class="exp-co">Shethority, LLC</p>
+      </div>
+      <div>
+        <p class="exp-role">Chief Operating Officer</p>
+        <span class="exp-tag">DTC · Startup · 0→1</span>
+        <p class="exp-desc">Built and scaled a mission-driven DTC brand from inception to 180,000+ community members. Owned P&L across events, content, merchandise, and fundraising. Raised $100K+ in revenue. Wrote every SOP, hired every team member, and built the infrastructure that made growth sustainable.</p>
+        <div class="exp-highlights">
+          <span class="exp-highlight">0 → 180K members</span>
+          <span class="exp-highlight">$100K+ revenue</span>
+          <span class="exp-highlight">4 business lines</span>
+          <span class="exp-highlight">4 direct reports</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <p class="exp-dates">2021 – Present</p>
+        <p class="exp-co">Various Healthcare & Tech Clients</p>
+      </div>
+      <div>
+        <p class="exp-role">Program Manager & Consultant</p>
+        <span class="exp-tag">Healthcare IT · Epic · Go-Live</span>
+        <p class="exp-desc">Led 6+ end-to-end Epic EHR implementations across hospital departments including Labor & Delivery and Emergency. Achieved 85%+ user adoption within two weeks of go-live across all engagements. Reduced approval cycle times by 15% and improved on-time delivery by 10% across client portfolio.</p>
+        <div class="exp-highlights">
+          <span class="exp-highlight">Epic EHR</span>
+          <span class="exp-highlight">85%+ adoption</span>
+          <span class="exp-highlight">−15% cycle time</span>
+          <span class="exp-highlight">6+ go-lives</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <p class="exp-dates">2025</p>
+        <p class="exp-co">Immabuy</p>
+      </div>
+      <div>
+        <p class="exp-role">Program Manager, Launch Operations</p>
+        <span class="exp-tag">eCommerce · Launch · 30-Day</span>
+        <p class="exp-desc">Directed full WordPress-to-Shopify eCommerce go-live — 40+ products, payment processing, and vendor coordination — within 30 days of onboarding. Built complete operational infrastructure from zero across 5+ concurrent workstreams.</p>
+        <div class="exp-highlights">
+          <span class="exp-highlight">30-day launch</span>
+          <span class="exp-highlight">40+ SKUs</span>
+          <span class="exp-highlight">Shopify migration</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <p class="exp-dates">2012 – 2017</p>
+        <p class="exp-co">Puma Biotechnology</p>
+      </div>
+      <div>
+        <p class="exp-role">Project Manager</p>
+        <span class="exp-tag">Biotech · FDA · Enterprise Tech</span>
+        <p class="exp-desc">Led commercialization and go-to-market launch of an FDA-approved oncology drug. Implemented Veeva Vault enterprise-wide, reducing submission errors by 15% against FDA deadlines. Managed cross-functional teams across medical, regulatory, legal, and operations throughout multiple clinical study lifecycles.</p>
+        <div class="exp-highlights">
+          <span class="exp-highlight">FDA approved</span>
+          <span class="exp-highlight">Veeva Vault</span>
+          <span class="exp-highlight">−15% errors</span>
+          <span class="exp-highlight">Clinical trials</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">Skills</p>
+  <h2 class="section-title fade-in">What I bring <em>to every room</em></h2>
+  <div class="skills-grid">
+    <div class="skill-block fade-in">
+      <span class="skill-block-icon">◎</span>
+      <h3 class="skill-block-title">Program & Project Management</h3>
+      <ul class="skill-block-list">
+        <li>Full lifecycle program ownership</li>
+        <li>Risk identification & mitigation</li>
+        <li>KPI development & reporting</li>
+        <li>Stakeholder alignment</li>
+        <li>Executive communication</li>
+        <li>SOP & documentation creation</li>
+      </ul>
+    </div>
+    <div class="skill-block fade-in" style="transition-delay:0.1s">
+      <span class="skill-block-icon">◈</span>
+      <h3 class="skill-block-title">Live Events & Production</h3>
+      <ul class="skill-block-list">
+        <li>Arena-scale event production</li>
+        <li>Multi-day festival operations</li>
+        <li>Brand activations & experiential</li>
+        <li>Vendor & supplier coordination</li>
+        <li>On-site logistics management</li>
+        <li>Nike · Adidas · Disney · ACLU</li>
+      </ul>
+    </div>
+    <div class="skill-block fade-in" style="transition-delay:0.2s">
+      <span class="skill-block-icon">◇</span>
+      <h3 class="skill-block-title">Operations & Org Building</h3>
+      <ul class="skill-block-list">
+        <li>0→1 infrastructure buildout</li>
+        <li>Hiring, staffing & team design</li>
+        <li>P&L and budget management</li>
+        <li>Workflow & process design</li>
+        <li>Cross-functional team leadership</li>
+        <li>Change management</li>
+      </ul>
+    </div>
+    <div class="skill-block fade-in" style="transition-delay:0.3s">
+      <span class="skill-block-icon">◉</span>
+      <h3 class="skill-block-title">Healthcare IT</h3>
+      <ul class="skill-block-list">
+        <li>Epic EHR implementation</li>
+        <li>Cadence & MyChart workflows</li>
+        <li>Clinical go-live management</li>
+        <li>Training program design</li>
+        <li>User adoption & proficiency</li>
+        <li>Veeva Vault · FDA compliance</li>
+      </ul>
+    </div>
+    <div class="skill-block fade-in" style="transition-delay:0.4s">
+      <span class="skill-block-icon">◑</span>
+      <h3 class="skill-block-title">Launches & Brand</h3>
+      <ul class="skill-block-list">
+        <li>eCommerce (Shopify) launches</li>
+        <li>DTC brand operations</li>
+        <li>Campaign production</li>
+        <li>Commercial go-to-market</li>
+        <li>Community growth & scaling</li>
+        <li>Fundraising programs</li>
+      </ul>
+    </div>
+    <div class="skill-block fade-in" style="transition-delay:0.5s">
+      <span class="skill-block-icon">◐</span>
+      <h3 class="skill-block-title">Tools & Platforms</h3>
+      <ul class="skill-block-list">
+        <li>Microsoft Office Suite</li>
+        <li>Shopify · WordPress</li>
+        <li>Epic · Veeva Vault</li>
+        <li>Project management tools</li>
+        <li>AI-powered platforms</li>
+        <li>Communication & collab tools</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <h2 class="section-title">Let's build <em>something</em><br>worth building.</h2>
+  <div class="contact-links">
+    <a href="mailto:lsounakhene@gmail.com" class="contact-link">lsounakhene@gmail.com</a>
+    <a href="https://www.linkedin.com/in/lynnsounakhene/" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
+    <span class="contact-link" style="cursor:default; opacity:0.6;">Los Angeles, CA</span>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
